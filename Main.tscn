@@ -30,6 +30,7 @@ viewport_path = NodePath("Terrain-map")
 resource_local_to_scene = true
 flags = 4
 viewport_path = NodePath("Splatmap")
+_sections_unfolded = [ "Resource" ]
 
 [sub_resource type="ViewportTexture" id=3]
 

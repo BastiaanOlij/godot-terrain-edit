@@ -8,6 +8,10 @@ onready var splatmap_node = get_node("Splatmap")
 var enable_ui = true
 
 func _ready():
+	# workaround for issue that flags aren't saved
+	var smap = $Terrain.get_splatmap()
+	smap.flags = Texture.FLAG_FILTER
+	
 	# make sure our brush sizes are all in sync by just reassigning the current value
 	_update_brush_size(terrain_map_node.brush_size)
 

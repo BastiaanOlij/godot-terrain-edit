@@ -134,10 +134,10 @@ func _on_LoadFileDialog_confirmed():
 #			get_node(terrain).load_pbr_map(i + 1, load_dir + image_name + ".png")
 	
 	$Texture_0.texture_normal = get_node(terrain).get_texture_map_1()
-	$Texture_2.texture_normal = get_node(terrain).get_texture_map_2()
-	$Texture_3.texture_normal = get_node(terrain).get_texture_map_3()
-	$Texture_4.texture_normal = get_node(terrain).get_texture_map_4()
-	$Texture_5.texture_normal = get_node(terrain).get_texture_map_5()
+	$Texture_1.texture_normal = get_node(terrain).get_texture_map_2()
+	$Texture_2.texture_normal = get_node(terrain).get_texture_map_3()
+	$Texture_3.texture_normal = get_node(terrain).get_texture_map_4()
+	$Texture_4.texture_normal = get_node(terrain).get_texture_map_5()
 
 ##############################################################################
 # Paint modes

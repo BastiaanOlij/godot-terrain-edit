@@ -1,0 +1,402 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scenes/UI.gd" type="Script" id=1]
+[ext_resource path="res://Textures/misc/up_down_arrow.png" type="Texture" id=2]
+[ext_resource path="res://Textures/misc/smooth.png" type="Texture" id=3]
+[ext_resource path="res://Textures/textures.com/TexturesCom_SoilCracked0079_1_seamless_S.jpg" type="Texture" id=4]
+[ext_resource path="res://Textures/textures.com/TexturesCom_Grass0202_1_seamless_S.jpg" type="Texture" id=5]
+[ext_resource path="res://Textures/textures.com/TexturesCom_Cliffs0464_7_seamless_S.jpg" type="Texture" id=6]
+[ext_resource path="res://Textures/textures.com/TexturesCom_Snow0151_5_seamless_S.png" type="Texture" id=7]
+[ext_resource path="res://Textures/textures.com/TexturesCom_SoilBeach0131_1_seamless_S.jpg" type="Texture" id=8]
+[ext_resource path="res://Textures/brushes/radial.png" type="Texture" id=9]
+[ext_resource path="res://Textures/brushes/splatter.png" type="Texture" id=10]
+
+[node name="UI" type="Control" index="0"]
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -215.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "Rect", "Visibility" ]
+terrain_map = null
+splat_map = null
+terrain = null
+paint_mode = 0
+brush_texture = "radial"
+
+[node name="ColorRect" type="ColorRect" parent="." index="0"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0.414124, 0.898438, 0.33149 )
+
+[node name="Save" type="Button" parent="." index="1"]
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -102.5
+margin_top = 5.0
+margin_right = -2.5
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Save"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="SaveFileDialog" type="FileDialog" parent="Save" index="0"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -687.0
+margin_top = 67.0
+margin_right = 42.0
+margin_bottom = 540.0
+rect_min_size = Vector2( 200, 70 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+window_title = "Open a Directory"
+resizable = false
+dialog_text = "Save terrain"
+dialog_hide_on_ok = false
+mode_overrides_title = true
+mode = 2
+access = 2
+filters = PoolStringArray(  )
+show_hidden_files = false
+current_dir = "C:/Users/basti/Desktop/Godot/Terrain-edit"
+current_file = ""
+current_path = "C:/Users/basti/Desktop/Godot/Terrain-edit/"
+_sections_unfolded = [ "Dialog", "Popup" ]
+
+[node name="Load" type="Button" parent="." index="2"]
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = 2.5
+margin_top = 5.0
+margin_right = 102.5
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Load"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="LoadFileDialog" type="FileDialog" parent="Load" index="0"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -330.0
+margin_top = 357.0
+margin_right = 399.0
+margin_bottom = 830.0
+rect_min_size = Vector2( 200, 70 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+window_title = "Open a Directory"
+resizable = false
+dialog_text = "Save terrain"
+dialog_hide_on_ok = false
+mode_overrides_title = true
+mode = 2
+access = 2
+filters = PoolStringArray(  )
+show_hidden_files = false
+current_dir = "C:/Users/basti/Desktop/Godot/Terrain-edit"
+current_file = ""
+current_path = "C:/Users/basti/Desktop/Godot/Terrain-edit/"
+_sections_unfolded = [ "Dialog", "Popup" ]
+
+[node name="UpDownButton" type="TextureButton" parent="." index="3"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 5.0
+margin_top = 35.0
+margin_right = 55.0
+margin_bottom = 85.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+hint_tooltip = "Raise and lower terrain"
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 2 )
+expand = true
+_sections_unfolded = [ "Hint", "Material", "Rect", "Textures", "Visibility" ]
+
+[node name="SmoothButton" type="TextureButton" parent="." index="4"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 58.0
+margin_top = 35.0
+margin_right = 108.0
+margin_bottom = 85.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+hint_tooltip = "Smooth terrain"
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 3 )
+expand = true
+_sections_unfolded = [ "Hint", "Material", "Textures", "Visibility" ]
+
+[node name="Texture_0" type="TextureButton" parent="." index="5"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 5.0
+margin_top = 95.0
+margin_right = 55.0
+margin_bottom = 145.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+hint_tooltip = "Paint with texture 1"
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 4 )
+expand = true
+_sections_unfolded = [ "Hint", "Material", "Rect", "Textures", "Visibility" ]
+
+[node name="Texture_1" type="TextureButton" parent="." index="6"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 58.0
+margin_top = 95.0
+margin_right = 108.0
+margin_bottom = 145.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+hint_tooltip = "Paint with texture 2"
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 5 )
+expand = true
+_sections_unfolded = [ "Hint", "Material", "Rect", "Textures", "Visibility" ]
+
+[node name="Texture_2" type="TextureButton" parent="." index="7"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 110.0
+margin_top = 95.0
+margin_right = 160.0
+margin_bottom = 145.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+hint_tooltip = "Paint with texture 3"
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 6 )
+expand = true
+_sections_unfolded = [ "Hint", "Material", "Rect", "Textures", "Visibility" ]
+
+[node name="Texture_3" type="TextureButton" parent="." index="8"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 163.0
+margin_top = 95.0
+margin_right = 213.0
+margin_bottom = 145.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+hint_tooltip = "Paint with texture 4"
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 7 )
+expand = true
+_sections_unfolded = [ "Focus", "Hint", "Material", "Rect", "Textures", "Visibility" ]
+
+[node name="Texture_4" type="TextureButton" parent="." index="9"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 5.0
+margin_top = 150.0
+margin_right = 55.0
+margin_bottom = 200.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+hint_tooltip = "Paint with texture 4"
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 8 )
+expand = true
+_sections_unfolded = [ "Focus", "Hint", "Material", "Rect", "Textures", "Visibility" ]
+
+[node name="Brush_0" type="TextureButton" parent="." index="10"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 5.0
+margin_top = 215.0
+margin_right = 55.0
+margin_bottom = 265.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+hint_tooltip = "Use radial brush"
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 9 )
+expand = true
+_sections_unfolded = [ "Hint", "Material", "Rect", "Textures", "Visibility" ]
+
+[node name="Brush_1" type="TextureButton" parent="." index="11"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 58.0
+margin_top = 215.0
+margin_right = 108.0
+margin_bottom = 265.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+hint_tooltip = "Use splatter brush"
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 10 )
+expand = true
+_sections_unfolded = [ "Hint", "Material", "Rect", "Textures", "Visibility" ]
+
+[connection signal="pressed" from="Save" to="." method="_on_Save_pressed"]
+[connection signal="about_to_show" from="Save/SaveFileDialog" to="." method="_on_popup_show"]
+[connection signal="confirmed" from="Save/SaveFileDialog" to="." method="_on_SaveFileDialog_confirmed"]
+[connection signal="popup_hide" from="Save/SaveFileDialog" to="." method="_on_popup_hide"]
+[connection signal="pressed" from="Load" to="." method="_on_Load_pressed"]
+[connection signal="about_to_show" from="Load/LoadFileDialog" to="." method="_on_popup_show"]
+[connection signal="confirmed" from="Load/LoadFileDialog" to="." method="_on_LoadFileDialog_confirmed"]
+[connection signal="popup_hide" from="Load/LoadFileDialog" to="." method="_on_popup_hide"]
+[connection signal="pressed" from="UpDownButton" to="." method="_on_UpDownButton_pressed"]
+[connection signal="pressed" from="SmoothButton" to="." method="_on_SmoothButton_pressed"]
+[connection signal="pressed" from="Texture_0" to="." method="_on_Texture_0_pressed"]
+[connection signal="pressed" from="Texture_1" to="." method="_on_Texture_1_pressed"]
+[connection signal="pressed" from="Texture_2" to="." method="_on_Texture_2_pressed"]
+[connection signal="pressed" from="Texture_3" to="." method="_on_Texture_3_pressed"]
+[connection signal="pressed" from="Texture_4" to="." method="_on_Texture_4_pressed"]
+[connection signal="pressed" from="Brush_0" to="." method="_on_Brush_0_pressed"]
+[connection signal="pressed" from="Brush_1" to="." method="_on_Brush_1_pressed"]

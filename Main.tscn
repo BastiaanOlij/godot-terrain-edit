@@ -1,0 +1,245 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://Navigation.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Terrain-map.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Splatmap.tscn" type="PackedScene" id=4]
+[ext_resource path="res://addons/terrain/Terrain-render.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Textures/textures.com/TexturesCom_SoilCracked0079_1_seamless_S.jpg" type="Texture" id=6]
+[ext_resource path="res://Textures/textures.com/TexturesCom_SoilCracked0079_1_seamless_N.png" type="Texture" id=7]
+[ext_resource path="res://Textures/misc/full_rough_no_metalic.png" type="Texture" id=8]
+[ext_resource path="res://Textures/textures.com/TexturesCom_SoilBeach0131_1_seamless_S.jpg" type="Texture" id=9]
+[ext_resource path="res://Textures/textures.com/TexturesCom_SoilBeach0131_1_seamless_N.png" type="Texture" id=10]
+[ext_resource path="res://Textures/textures.com/TexturesCom_Grass0202_1_seamless_S.jpg" type="Texture" id=11]
+[ext_resource path="res://Textures/textures.com/TexturesCom_Grass0202_1_seamless_N.png" type="Texture" id=12]
+[ext_resource path="res://Textures/textures.com/TexturesCom_Cliffs0464_7_seamless_S.jpg" type="Texture" id=13]
+[ext_resource path="res://Textures/textures.com/TexturesCom_Cliffs0464_7_seamless_N.png" type="Texture" id=14]
+[ext_resource path="res://Textures/textures.com/TexturesCom_Snow0151_5_seamless_S.png" type="Texture" id=15]
+[ext_resource path="res://Textures/textures.com/TexturesCom_Snow0151_5_seamless_N.png" type="Texture" id=16]
+[ext_resource path="res://addons/terrain/PickMap.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=18]
+
+[sub_resource type="ViewportTexture" id=5]
+
+resource_local_to_scene = true
+flags = 0
+viewport_path = NodePath("Terrain-map")
+
+[sub_resource type="ViewportTexture" id=6]
+
+resource_local_to_scene = true
+flags = 0
+viewport_path = NodePath("Splatmap")
+
+[sub_resource type="ViewportTexture" id=1]
+
+resource_local_to_scene = true
+flags = 0
+viewport_path = NodePath("Terrain-map")
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="ViewportTexture" id=2]
+
+resource_local_to_scene = true
+flags = 0
+viewport_path = NodePath("Terrain-map")
+
+[sub_resource type="ViewportTexture" id=3]
+
+resource_local_to_scene = true
+flags = 0
+viewport_path = NodePath("Splatmap")
+
+[sub_resource type="ViewportTexture" id=4]
+
+resource_local_to_scene = true
+flags = 0
+viewport_path = NodePath("PickMap")
+
+[node name="Main" type="Spatial" index="0"]
+script = ExtResource( 1 )
+
+[node name="Camera_Pivot" type="Position3D" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Camera" type="Camera" parent="Camera_Pivot" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50 )
+keep_aspect = 1
+cull_mask = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = false
+fov = 70.0
+size = 1.0
+near = 0.05
+far = 2048.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="1"]
+transform = Transform( 0.742076, 0.450275, -0.496564, 0, 0.740792, 0.671735, 0.670316, -0.498478, 0.549724, 0, 10, 0 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.1
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+directional_shadow_mode = 2
+directional_shadow_split_1 = 0.1
+directional_shadow_split_2 = 0.2
+directional_shadow_split_3 = 0.5
+directional_shadow_blend_splits = false
+directional_shadow_normal_bias = 0.8
+directional_shadow_bias_split_scale = 0.25
+directional_shadow_depth_range = 0
+directional_shadow_max_distance = 200.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="Terrain-map" parent="." index="2" instance=ExtResource( 3 )]
+keep_3d_linear = false
+
+[node name="Splatmap" parent="." index="3" instance=ExtResource( 4 )]
+
+[node name="Terrain" parent="." index="4" instance=ExtResource( 5 )]
+target_color = Color( 0, 0.439216, 0.905882, 1 )
+heightmap = SubResource( 5 )
+splatmap = SubResource( 6 )
+texture_map_1 = ExtResource( 6 )
+normal_map_1 = ExtResource( 7 )
+pbr_map_1 = ExtResource( 8 )
+texture_map_2 = ExtResource( 9 )
+normal_map_2 = ExtResource( 10 )
+pbr_map_2 = ExtResource( 8 )
+texture_map_3 = ExtResource( 11 )
+normal_map_3 = ExtResource( 12 )
+pbr_map_3 = ExtResource( 8 )
+texture_map_4 = ExtResource( 13 )
+normal_map_4 = ExtResource( 14 )
+pbr_map_4 = ExtResource( 8 )
+texture_map_5 = ExtResource( 15 )
+normal_map_5 = ExtResource( 16 )
+pbr_map_5 = ExtResource( 8 )
+
+[node name="PickMap" parent="." index="5" instance=ExtResource( 17 )]
+heightmap = SubResource( 1 )
+display_viewport = null
+
+[node name="UI" parent="." index="6" instance=ExtResource( 18 )]
+terrain_map = NodePath("../Terrain-map")
+splat_map = NodePath("../Splatmap")
+terrain = NodePath("../Terrain")
+
+[node name="TextEdit" type="TextEdit" parent="UI" index="12"]
+modulate = Color( 1, 1, 1, 0.552471 )
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_left = -809.0
+margin_top = -100.0
+margin_right = -309.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "Use mouse to draw, left mouse button adds, right mouse button subtracts
+Use scrollwheel to change draw size
+Hold ALT to orbit camera
+Hold SHIFT to move camera
+Hold CONTROL to zoom"
+readonly = true
+highlight_current_line = false
+syntax_highlighting = false
+show_line_numbers = false
+highlight_all_occurrences = false
+override_selected_font_color = false
+context_menu_enabled = true
+smooth_scrolling = false
+v_scroll_speed = 80.0
+hiding_enabled = 0
+wrap_lines = false
+caret_block_mode = false
+caret_blink = false
+caret_blink_speed = 0.65
+caret_moving_by_right_click = true
+_sections_unfolded = [ "Caret", "Rect", "Theme", "Visibility", "custom_colors", "custom_constants" ]
+
+[node name="Previews" type="Node" parent="." index="7"]
+
+[node name="TerrainPreview" type="TextureRect" parent="Previews" index="0"]
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = SubResource( 2 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Material", "Rect", "Visibility" ]
+
+[node name="SplatmapPreview" type="TextureRect" parent="Previews" index="1"]
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 110.0
+margin_right = 210.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = SubResource( 3 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="PickMapPreview" type="TextureRect" parent="Previews" index="2"]
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 220.0
+margin_right = 270.0
+margin_bottom = 50.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = SubResource( 4 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[connection signal="brush_texture_changed" from="UI" to="." method="_on_UI_brush_texture_changed"]
+[connection signal="popup_hidden" from="UI" to="." method="_on_UI_popup_hidden"]
+[connection signal="popup_shown" from="UI" to="." method="_on_UI_popup_shown"]

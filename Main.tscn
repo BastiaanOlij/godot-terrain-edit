@@ -19,38 +19,38 @@
 [ext_resource path="res://addons/terrain/PickMap.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=18]
 
-[sub_resource type="ViewportTexture" id=5]
+[sub_resource type="ViewportTexture" id=1]
 
 resource_local_to_scene = true
 flags = 0
 viewport_path = NodePath("Terrain-map")
 
-[sub_resource type="ViewportTexture" id=6]
+[sub_resource type="ViewportTexture" id=2]
 
 resource_local_to_scene = true
-flags = 0
+flags = 4
 viewport_path = NodePath("Splatmap")
 
-[sub_resource type="ViewportTexture" id=1]
+[sub_resource type="ViewportTexture" id=3]
 
 resource_local_to_scene = true
 flags = 0
 viewport_path = NodePath("Terrain-map")
 _sections_unfolded = [ "Resource" ]
 
-[sub_resource type="ViewportTexture" id=2]
+[sub_resource type="ViewportTexture" id=4]
 
 resource_local_to_scene = true
 flags = 0
 viewport_path = NodePath("Terrain-map")
 
-[sub_resource type="ViewportTexture" id=3]
+[sub_resource type="ViewportTexture" id=5]
 
 resource_local_to_scene = true
-flags = 0
+flags = 4
 viewport_path = NodePath("Splatmap")
 
-[sub_resource type="ViewportTexture" id=4]
+[sub_resource type="ViewportTexture" id=6]
 
 resource_local_to_scene = true
 flags = 0
@@ -114,8 +114,8 @@ keep_3d_linear = false
 
 [node name="Terrain" parent="." index="4" instance=ExtResource( 5 )]
 target_color = Color( 0, 0.439216, 0.905882, 1 )
-heightmap = SubResource( 5 )
-splatmap = SubResource( 6 )
+heightmap = SubResource( 1 )
+splatmap = SubResource( 2 )
 texture_map_1 = ExtResource( 6 )
 normal_map_1 = ExtResource( 7 )
 pbr_map_1 = ExtResource( 8 )
@@ -133,7 +133,7 @@ normal_map_5 = ExtResource( 16 )
 pbr_map_5 = ExtResource( 8 )
 
 [node name="PickMap" parent="." index="5" instance=ExtResource( 17 )]
-heightmap = SubResource( 1 )
+heightmap = SubResource( 3 )
 display_viewport = null
 
 [node name="UI" parent="." index="6" instance=ExtResource( 18 )]
@@ -195,7 +195,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = SubResource( 2 )
+texture = SubResource( 4 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Material", "Rect", "Visibility" ]
@@ -215,7 +215,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = SubResource( 3 )
+texture = SubResource( 5 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
@@ -235,7 +235,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = SubResource( 4 )
+texture = SubResource( 6 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]

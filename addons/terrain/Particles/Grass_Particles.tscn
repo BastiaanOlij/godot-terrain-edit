@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://addons/terrain/Particles/terrain_particles.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/terrain/Particles/grass_shader_material.tres" type="Material" id=2]
+[ext_resource path="res://addons/terrain/Particles/terrain_particles.shader" type="Shader" id=3]
+[ext_resource path="res://addons/terrain/Assets/tri6.obj" type="ArrayMesh" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource( 3 )
+shader_param/amplitude = null
+shader_param/heightmap_size = null
+shader_param/rows = null
+shader_param/spacing = null
+shader_param/base_scale = null
+shader_param/channel = null
+_sections_unfolded = [ "Resource", "Shader Param", "shader_param" ]
+
+[node name="Particles" index="0" instance=ExtResource( 1 )]
+material_override = ExtResource( 2 )
+process_material = SubResource( 1 )
+draw_pass_1 = ExtResource( 4 )
+_sections_unfolded = [ "Draw Passes", "Drawing", "Geometry", "Lod", "Transform", "draw_pass_1", "material_override", "process_material" ]
+channel = 1
+particle_scale = Vector3( 1, 1, 1 )
+

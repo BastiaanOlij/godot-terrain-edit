@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://addons/terrain/Particles/terrain_particles.shader" type="Shader" id=1]
+
+
+
+
+[resource]
+
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource( 1 )
+shader_param/amplitude = null
+shader_param/heightmap_size = null
+shader_param/rows = null
+shader_param/spacing = null
+shader_param/base_scale = null
+_sections_unfolded = [ "Resource", "Shader Param", "shader_param" ]
+

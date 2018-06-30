@@ -1,0 +1,17 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/star6.obj-25204f2ae350b238ac8f284078f96364.mesh"
+
+[deps]
+
+files=[ "res://.import/star6.obj-25204f2ae350b238ac8f284078f96364.mesh" ]
+
+source_file="res://addons/terrain/Assets/star6.obj"
+dest_files=[ "res://.import/star6.obj-25204f2ae350b238ac8f284078f96364.mesh", "res://.import/star6.obj-25204f2ae350b238ac8f284078f96364.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )

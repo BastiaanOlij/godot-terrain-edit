@@ -1,0 +1,28 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+
+[ext_resource path="res://addons/terrain/Render/Terrain_render.shader" type="Shader" id=1]
+[ext_resource path="res://addons/terrain/Assets/black.png" type="Texture" id=2]
+[ext_resource path="res://addons/terrain/Assets/noise_texture.png" type="Texture" id=3]
+
+[resource]
+
+resource_name = "Terrain_material"
+render_priority = 0
+shader = ExtResource( 1 )
+shader_param/heightmap_size = Vector2( 4096, 4096 )
+shader_param/splatmap_size = Vector2( 4096, 4096 )
+shader_param/texture_scale_1 = 0.1
+shader_param/texture_scale_2 = null
+shader_param/texture_scale_3 = null
+shader_param/texture_scale_4 = null
+shader_param/texture_scale_5 = 0.1
+shader_param/amplitude = 4096.0
+shader_param/target = null
+shader_param/target_inner_radius = null
+shader_param/target_radius = null
+shader_param/target_color = Color( 0.0745098, 0.521569, 0.819608, 1 )
+shader_param/heightmap = ExtResource( 2 )
+shader_param/splatmap = ExtResource( 2 )
+shader_param/noisemap = ExtResource( 3 )
+_sections_unfolded = [ "Resource", "Shader Param", "shader_param", "shader_param/heightmap" ]
+

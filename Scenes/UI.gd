@@ -2,14 +2,17 @@ extends Control
 
 export (NodePath) var terrain_map = null
 export (NodePath) var splat_map = null
+export (NodePath) var particle_map = null
 export (NodePath) var terrain = null
 
 signal popup_shown
 signal popup_hidden
 signal brush_texture_changed(texture)
+signal time_of_day_changed(new_hours)
 
 var heightmap_filename = "heightmap.png"
 var splatmap_filename = "splatmap.png"
+var particlemap_filename = "particlemap.png"
 
 func _ready():
 	set_paint_mode(paint_mode)
@@ -42,6 +45,9 @@ func _on_SaveFileDialog_confirmed():
 	if !splat_map:
 		return
 	
+	if !particle_map:
+		return
+	
 	if !terrain:
 		return
 	
@@ -49,6 +55,7 @@ func _on_SaveFileDialog_confirmed():
 	var save_dir = $Save/SaveFileDialog.current_dir + "/"
 	var terrain_heightmap_filename = save_dir + heightmap_filename
 	var terrain_splatmap_filename = save_dir + splatmap_filename
+	var terrain_particlemap_filename = save_dir + particlemap_filename
 	
 	# start saving our textures
 	print("Saving " + terrain_heightmap_filename)
@@ -58,6 +65,10 @@ func _on_SaveFileDialog_confirmed():
 	print("Saving " + terrain_splatmap_filename)
 	image = get_node(splat_map).get_texture().get_data()
 	image.save_png(terrain_splatmap_filename)
+	
+	print("Saving " + terrain_particlemap_filename)
+	image = get_node(particle_map).get_texture().get_data()
+	image.save_png(terrain_particlemap_filename)
 	
 #	Disabled the saving of textures for now, not sure why but it seems to be loosing something
 #	Will probably implement this completely different, keeping track of the image names of the images.
@@ -100,6 +111,9 @@ func _on_LoadFileDialog_confirmed():
 	if !splat_map:
 		return
 	
+	if !particle_map:
+		return
+	
 	if !terrain:
 		return
 	
@@ -107,6 +121,7 @@ func _on_LoadFileDialog_confirmed():
 	var load_dir = $Load/LoadFileDialog.current_dir + "/"
 	var terrain_heightmap_filename = load_dir + "/" + heightmap_filename
 	var terrain_splatmap_filename = load_dir + "/" + splatmap_filename
+	var terrain_particlemap_filename = load_dir + "/" + particlemap_filename
 	
 	if file.file_exists(terrain_heightmap_filename):
 		print("Loading " + terrain_heightmap_filename)
@@ -115,6 +130,10 @@ func _on_LoadFileDialog_confirmed():
 	if file.file_exists(terrain_splatmap_filename):
 		print("Loading " + terrain_splatmap_filename)
 		get_node(splat_map).load_image(terrain_splatmap_filename)
+	
+	if file.file_exists(terrain_particlemap_filename):
+		print("Loading " + terrain_particlemap_filename)
+		get_node(particle_map).load_image(terrain_particlemap_filename)
 	
 #	Disabled for now, it's loosing something in these loads.. 
 #	var material = get_node(terrain).get_material()
@@ -185,6 +204,26 @@ func set_paint_mode(p_mode):
 			$Texture_4.modulate = selected_color
 		else:
 			$Texture_4.modulate = not_selected_color
+		
+		if paint_mode == 10:
+			$Particle_0.modulate = selected_color
+		else:
+			$Particle_0.modulate = not_selected_color
+
+		if paint_mode == 11:
+			$Particle_1.modulate = selected_color
+		else:
+			$Particle_1.modulate = not_selected_color
+
+		if paint_mode == 12:
+			$Particle_2.modulate = selected_color
+		else:
+			$Particle_2.modulate = not_selected_color
+
+		if paint_mode == 13:
+			$Particle_3.modulate = selected_color
+		else:
+			$Particle_3.modulate = not_selected_color
 
 func get_paint_mode():
 	return paint_mode
@@ -209,6 +248,21 @@ func _on_Texture_3_pressed():
 
 func _on_Texture_4_pressed():
 	set_paint_mode(9)
+
+##############################################################################
+# Particles
+
+func _on_Particle_0_pressed():
+	set_paint_mode(10)
+
+func _on_Particle_1_pressed():
+	set_paint_mode(11)
+
+func _on_Particle_2_pressed():
+	set_paint_mode(12)
+
+func _on_Particle_3_pressed():
+	set_paint_mode(13)
 
 ##############################################################################
 # Brush textures
@@ -241,3 +295,12 @@ func _on_Brush_0_pressed():
 
 func _on_Brush_1_pressed():
 	set_brush_texture("splatter")
+
+##############################################################################
+# Time of day
+
+func _on_Time_of_day_value_changed(new_value):
+	emit_signal("time_of_day_changed", new_value)
+
+
+

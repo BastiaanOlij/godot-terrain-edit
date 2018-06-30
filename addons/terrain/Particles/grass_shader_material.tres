@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=2]
+
+[ext_resource path="res://addons/terrain/Particles/grass.shader" type="Shader" id=1]
+[ext_resource path="res://addons/terrain/Assets/grass_05/normal.png" type="Texture" id=2]
+[ext_resource path="res://addons/terrain/Assets/grass_05/specular.png" type="Texture" id=3]
+[ext_resource path="res://addons/terrain/Assets/grass_05/diffus.png" type="Texture" id=4]
+
+[resource]
+
+render_priority = 0
+shader = ExtResource( 1 )
+shader_param/amplitude = null
+shader_param/speed = null
+shader_param/scale = null
+shader_param/texture_map = ExtResource( 4 )
+shader_param/normal_map = ExtResource( 2 )
+shader_param/specular_map = ExtResource( 3 )
+_sections_unfolded = [ "Resource", "Shader Param", "shader" ]
+

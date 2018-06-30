@@ -20,7 +20,9 @@ License
 -------
 The source code held within is released under an MIT license.
 
-Note that various images found within the textures folder are copyright by their respective authors. Please visit HDRIHaven and Textures.com for further details. 
+Note that various images found within the textures folder are copyright by their respective authors. Please visit HDRIHaven and Textures.com for further details.
+
+I'm also using some resources by https://opengameart.org/users/yughues
 
 About this repository
 ---------------------

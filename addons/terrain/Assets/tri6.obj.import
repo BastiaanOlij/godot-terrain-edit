@@ -1,0 +1,17 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/tri6.obj-ea91127327abf8f06e3bc525520aa8a3.mesh"
+
+[deps]
+
+files=[ "res://.import/tri6.obj-ea91127327abf8f06e3bc525520aa8a3.mesh" ]
+
+source_file="res://addons/terrain/Assets/tri6.obj"
+dest_files=[ "res://.import/tri6.obj-ea91127327abf8f06e3bc525520aa8a3.mesh", "res://.import/tri6.obj-ea91127327abf8f06e3bc525520aa8a3.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
